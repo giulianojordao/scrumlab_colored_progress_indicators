@@ -1,8 +1,8 @@
-# flutter_colored_progress_indicators <span> | </span> <a href="https://pub.dev/packages/flutter_colored_progress_indicators"><img src="https://img.shields.io/badge/pub.dev-v1.2.0-red?style=flat-square" alt="flutter"/></a> <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/Built with-flutter-blue?style=flat-square" alt="flutter"/></a>
+# scrumlab_colored_progress_indicators <span> | </span> <a href="https://pub.dev/packages/scrumlab_colored_progress_indicators"><img src="https://img.shields.io/badge/pub.dev-v1.2.0-red?style=flat-square" alt="flutter"/></a> <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/Built with-flutter-blue?style=flat-square" alt="flutter"/></a>
 
 ---
 
-<p align="center"><img src="https://raw.githubusercontent.com/Abhi011999/flutter_colored_progress_indicators/master/images/example.gif" alt="example"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/giulianojordao/scrumlab_colored_progress_indicators/master/images/example.gif" alt="example"/></p>
 
 An alternate animated progress indicator widget for flutter's [CircularProgressIndicator](https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html), [LinearProgressIndicator](https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html) and [RefreshIndicator](https://api.flutter.dev/flutter/material/RefreshIndicator-class.html) with Google color accents.
 
@@ -20,13 +20,13 @@ In the `pubspec.yaml` of your flutter project, add the following dependency:
 ```yaml
 dependencies:
   ...
-  flutter_colored_progress_indicators: ^1.2.0
+  scrumlab_colored_progress_indicators: ^1.2.0-nullsafety.0
 ```
 
 In your library add the following import:
 
 ```dart
-import 'package:flutter_colored_progress_indicators/flutter_colored_progress_indicators.dart';
+import 'package:scrumlab_colored_progress_indicators/scrumlab_colored_progress_indicators.dart';
 ```
 
 After that run `flutter pub get`
@@ -71,7 +71,7 @@ the `valueColor`/`color` property (because it changes with the color animation).
 
 ## Changelog
 
-See [CHANGELOG.md](https://github.com/Abhi011999/flutter_colored_progress_indicators/blob/master/CHANGELOG.md) for recent changes.
+See [CHANGELOG.md](https://github.com/giulianojordao/scrumlab_colored_progress_indicators/blob/master/CHANGELOG.md) for recent changes.
 
 ## TO-DO
 
@@ -91,4 +91,4 @@ You can be of great help if you want to improve or add anything !
 
 ## License
 
-> Package licensed under the [MIT License](https://github.com/Abhi011999/flutter_colored_progress_indicators/blob/master/LICENSE).
+> Package licensed under the [MIT License](https://github.com/giulianojordao/scrumlab_colored_progress_indicators/blob/master/LICENSE).

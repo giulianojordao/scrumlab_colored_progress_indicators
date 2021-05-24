@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Abhishek Dubey.
+// Copyright (c) 2020 Giuliano Jordao.
 //
 // Use of this source code is governed by a MIT license that can be
 // found in the LICENSE file.
@@ -33,7 +33,8 @@ class ColoredCircularProgressIndicator extends ProgressIndicator {
   _ColoredCircularProgressIndicatorState createState() => _ColoredCircularProgressIndicatorState();
 }
 
-class _ColoredCircularProgressIndicatorState extends State<ColoredCircularProgressIndicator> with SingleTickerProviderStateMixin {
+class _ColoredCircularProgressIndicatorState extends State<ColoredCircularProgressIndicator>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   Animatable<Color?> _tweenSequence = circularTweenSequence;
 

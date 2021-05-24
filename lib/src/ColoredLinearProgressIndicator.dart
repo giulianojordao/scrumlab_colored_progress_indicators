@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Abhishek Dubey.
+// Copyright (c) 2020 Giuliano Jordao.
 //
 // Use of this source code is governed by a MIT license that can be
 // found in the LICENSE file.
@@ -18,8 +18,8 @@ class ColoredLinearProgressIndicator extends ProgressIndicator {
     this.minHeight,
     String? semanticsLabel,
     String? semanticsValue,
-  }) : assert(minHeight == null || minHeight > 0),
-       super(
+  })  : assert(minHeight == null || minHeight > 0),
+        super(
           key: key,
           value: value,
           backgroundColor: backgroundColor,
@@ -36,7 +36,8 @@ class ColoredLinearProgressIndicator extends ProgressIndicator {
   _ColoredLinearProgressIndicatorState createState() => _ColoredLinearProgressIndicatorState();
 }
 
-class _ColoredLinearProgressIndicatorState extends State<ColoredLinearProgressIndicator> with SingleTickerProviderStateMixin {
+class _ColoredLinearProgressIndicatorState extends State<ColoredLinearProgressIndicator>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   Animatable<Color?> _tweenSequence = linearTweenSequence;
 

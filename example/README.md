@@ -1,13 +1,13 @@
 # example app
 
-<p align="center"><img src="https://raw.githubusercontent.com/Abhi011999/flutter_colored_progress_indicators/master/images/example.gif" alt="example"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/giulianojordao/scrumlab_colored_progress_indicators/master/images/example.gif" alt="example"/></p>
 
 ## Code
 
 ```dart
 import 'package:flutter/material.dart';
 
-import 'package:flutter_colored_progress_indicators/flutter_colored_progress_indicators.dart';
+import 'package:scrumlab_colored_progress_indicators/scrumlab_colored_progress_indicators.dart';
 
 void main() {
   runApp(MyApp());

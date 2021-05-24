@@ -1,5 +1,5 @@
 // Copyright 2014 The Flutter Authors. All rights reserved.
-// Copyright (c) 2020 Abhishek Dubey.
+// Copyright (c) 2020 Giuliano Jordao.
 //
 // Use of this source code is governed by a BSD-style license that can be
 // found in official flutter's repository's LICENSE file.
@@ -13,22 +13,25 @@ import 'tweens.dart';
 const int _kIndeterminateCircularDuration = 1333 * 2222;
 
 class _ColoredRefreshProgressIndicatorPainter extends CustomPainter {
-  _ColoredRefreshProgressIndicatorPainter({
-    this.backgroundColor,
-    this.valueColor,
-    this.value,
-    this.headValue,
-    this.tailValue,
-    this.offsetValue,
-    this.rotationValue,
-    this.strokeWidth,
-    this.arrowheadScale
-  }) : arcStart = value != null
-         ? _startAngle
-         : _startAngle + tailValue! * 3 / 2 * math.pi + rotationValue! * math.pi * 2.0 + offsetValue! * 0.5 * math.pi,
-       arcSweep = value != null
-         ? value.clamp(0.0, 1.0) * _sweep
-         : math.max(headValue! * 3 / 2 * math.pi - tailValue! * 3 / 2 * math.pi, _epsilon);
+  _ColoredRefreshProgressIndicatorPainter(
+      {this.backgroundColor,
+      this.valueColor,
+      this.value,
+      this.headValue,
+      this.tailValue,
+      this.offsetValue,
+      this.rotationValue,
+      this.strokeWidth,
+      this.arrowheadScale})
+      : arcStart = value != null
+            ? _startAngle
+            : _startAngle +
+                tailValue! * 3 / 2 * math.pi +
+                rotationValue! * math.pi * 2.0 +
+                offsetValue! * 0.5 * math.pi,
+        arcSweep = value != null
+            ? value.clamp(0.0, 1.0) * _sweep
+            : math.max(headValue! * 3 / 2 * math.pi - tailValue! * 3 / 2 * math.pi, _epsilon);
 
   final Color? backgroundColor;
   final Color? valueColor;
@@ -58,7 +61,7 @@ class _ColoredRefreshProgressIndicatorPainter extends CustomPainter {
     assert(size.width == size.height);
     final double radius = size.width / 2.0;
     final double arrowheadPointX = radius + ux * radius + -uy * strokeWidth! * 2.0 * arrowheadScale!;
-    final double arrowheadPointY = radius + uy * radius +  ux * strokeWidth! * 2.0 * arrowheadScale!;
+    final double arrowheadPointY = radius + uy * radius + ux * strokeWidth! * 2.0 * arrowheadScale!;
     final double arrowheadRadius = strokeWidth! * 1.5 * arrowheadScale!;
     final double innerRadius = radius - arrowheadRadius;
     final double outerRadius = radius + arrowheadRadius;
@@ -93,21 +96,20 @@ class _ColoredRefreshProgressIndicatorPainter extends CustomPainter {
       paint.strokeCap = StrokeCap.square;
 
     canvas.drawArc(Offset.zero & size, arcStart, arcSweep, false, paint);
-    
-    if (arrowheadScale! > 0.0)
-      paintArrowhead(canvas, size);
+
+    if (arrowheadScale! > 0.0) paintArrowhead(canvas, size);
   }
 
   @override
   bool shouldRepaint(_ColoredRefreshProgressIndicatorPainter oldPainter) {
-    return oldPainter.backgroundColor != backgroundColor
-        || oldPainter.valueColor != valueColor
-        || oldPainter.value != value
-        || oldPainter.headValue != headValue
-        || oldPainter.tailValue != tailValue
-        || oldPainter.offsetValue != offsetValue
-        || oldPainter.rotationValue != rotationValue
-        || oldPainter.strokeWidth != strokeWidth;
+    return oldPainter.backgroundColor != backgroundColor ||
+        oldPainter.valueColor != valueColor ||
+        oldPainter.value != value ||
+        oldPainter.headValue != headValue ||
+        oldPainter.tailValue != tailValue ||
+        oldPainter.offsetValue != offsetValue ||
+        oldPainter.rotationValue != rotationValue ||
+        oldPainter.strokeWidth != strokeWidth;
   }
 }
 
@@ -127,13 +129,13 @@ class ColoredRefreshProgressIndicator extends ProgressIndicator {
     String? semanticsLabel,
     String? semanticsValue,
   }) : super(
-    key: key,
-    value: value,
-    backgroundColor: backgroundColor,
-    valueColor: valueColor,
-    semanticsLabel: semanticsLabel,
-    semanticsValue: semanticsValue,
-  );
+          key: key,
+          value: value,
+          backgroundColor: backgroundColor,
+          valueColor: valueColor,
+          semanticsLabel: semanticsLabel,
+          semanticsValue: semanticsValue,
+        );
 
   final double strokeWidth;
 
@@ -141,7 +143,8 @@ class ColoredRefreshProgressIndicator extends ProgressIndicator {
   _ColoredRefreshProgressIndicatorState createState() => _ColoredRefreshProgressIndicatorState();
 }
 
-class _ColoredRefreshProgressIndicatorState extends State<ColoredRefreshProgressIndicator> with TickerProviderStateMixin {
+class _ColoredRefreshProgressIndicatorState extends State<ColoredRefreshProgressIndicator>
+    with TickerProviderStateMixin {
   static const int _pathCount = _kIndeterminateCircularDuration ~/ 1333;
   static const int _rotationCount = _kIndeterminateCircularDuration ~/ 2222;
 
@@ -158,7 +161,7 @@ class _ColoredRefreshProgressIndicatorState extends State<ColoredRefreshProgress
   ));
   static final Animatable<double> _offsetTween = CurveTween(curve: const SawTooth(_pathCount));
   static final Animatable<double> _rotationTween = CurveTween(curve: const SawTooth(_rotationCount));
-  
+
   late AnimationController _controller;
   late AnimationController _colorController;
   final double _indicatorSize = 40.0;
@@ -187,9 +190,7 @@ class _ColoredRefreshProgressIndicatorState extends State<ColoredRefreshProgress
     if (widget.value == null && !_controller.isAnimating) {
       _controller.repeat();
       _colorController.repeat();
-    }
-    else if (widget.value != null && _controller.isAnimating)
-      _controller.stop();
+    } else if (widget.value != null && _controller.isAnimating) _controller.stop();
   }
 
   @override
@@ -199,9 +200,10 @@ class _ColoredRefreshProgressIndicatorState extends State<ColoredRefreshProgress
     super.dispose();
   }
 
-  Widget _buildIndicator(BuildContext context, double headValue, double tailValue, double offsetValue, double rotationValue) {
+  Widget _buildIndicator(
+      BuildContext context, double headValue, double tailValue, double offsetValue, double rotationValue) {
     final double arrowheadScale = widget.value == null ? 0.0 : (widget.value! * 2.0).clamp(0.0, 1.0);
-    
+
     String? expandedSemanticsValue = widget.semanticsValue;
     if (widget.value != null) {
       expandedSemanticsValue ??= '${(widget.value! * 100).round()}%';

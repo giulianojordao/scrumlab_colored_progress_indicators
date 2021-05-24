@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_colored_progress_indicators/flutter_colored_progress_indicators.dart';
+import 'package:scrumlab_colored_progress_indicators/scrumlab_colored_progress_indicators.dart';
 
 void main() {
   runApp(MyApp());

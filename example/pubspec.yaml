@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_colored_progress_indicators:
+  scrumlab_colored_progress_indicators:
     path: ../
 
 dev_dependencies:
